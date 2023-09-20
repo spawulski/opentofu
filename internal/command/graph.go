@@ -214,10 +214,10 @@ Options:
                    This helps when diagnosing cycle errors.
 
   -type=plan       Type of graph to output. Can be: plan, plan-refresh-only,
-                   plan-destroy, or apply. By default OpenTF chooses
+                   plan-destroy, or apply. By default OpenTofu chooses
 				   "plan", or "apply" if you also set the -plan=... option.
 
-  -module-depth=n  (deprecated) In prior versions of OpenTF, specified the
+  -module-depth=n  (deprecated) In prior versions of OpenTofu, specified the
 				   depth of modules to show in the output.
 `
 	return strings.TrimSpace(helpText)

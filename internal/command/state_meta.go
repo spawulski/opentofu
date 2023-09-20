@@ -49,7 +49,7 @@ func (c *StateMeta) State() (statemgr.Full, error) {
 		remoteVersionDiags := c.remoteVersionCheck(b, workspace)
 		c.showDiagnostics(remoteVersionDiags)
 		if remoteVersionDiags.HasErrors() {
-			return nil, fmt.Errorf("Error checking remote OpenTF version")
+			return nil, fmt.Errorf("Error checking remote OpenTofu version")
 		}
 
 		// Get the state

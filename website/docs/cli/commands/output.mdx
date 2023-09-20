@@ -22,7 +22,7 @@ The command-line flags are all optional. The following flags are available:
 * `-json` - If specified, the outputs are formatted as a JSON object, with
   a key per output. If `NAME` is specified, only the output specified will be
   returned. This can be piped into tools such as `jq` for further processing.
-* `-raw` - If specified, OpenTF will convert the specified output value to a
+* `-raw` - If specified, OpenTofu will convert the specified output value to a
   string and print that string directly to the output, without any special
   formatting. This can be convenient when working with shell scripts, but
   it only supports string, number, and boolean values. Use `-json` instead
@@ -33,13 +33,13 @@ The command-line flags are all optional. The following flags are available:
 
 :::note
 When using the `-json` or `-raw` command-line flag, any sensitive
-values in OpenTF state will be displayed in plain text. For more information,
+values in OpenTofu state will be displayed in plain text. For more information,
 see [Sensitive Data in State](/docs/language/state/sensitive-data).
 :::
 
 ## Examples
 
-These examples assume the following OpenTF output snippet.
+These examples assume the following OpenTofu output snippet.
 
 ```hcl
 output "instance_ips" {
@@ -117,11 +117,11 @@ $ opentf output -raw lb_address
 my-app-alb-1657023003.us-east-1.elb.amazonaws.com
 ```
 
-The `-raw` option works only with values that OpenTF can automatically
+The `-raw` option works only with values that OpenTofu can automatically
 convert to strings. Use `-json` instead, possibly combined with `jq`, to
 work with complex-typed values such as objects.
 
-OpenTF strings are sequences of Unicode characters rather than raw bytes,
+OpenTofu strings are sequences of Unicode characters rather than raw bytes,
 so the `-raw` output will be UTF-8 encoded when it contains non-ASCII
 characters. If you need a different character encoding, use a separate command
-such as `iconv` to transcode OpenTF's raw output.
+such as `iconv` to transcode OpenTofu's raw output.

@@ -54,7 +54,7 @@ func (c *ProvidersCommand) Run(args []string) int {
 		diags = diags.Append(tfdiags.Sourceless(
 			tfdiags.Error,
 			"Error validating configuration directory",
-			fmt.Sprintf("OpenTF encountered an unexpected error while verifying that the given configuration directory is valid: %s.", err),
+			fmt.Sprintf("OpenTofu encountered an unexpected error while verifying that the given configuration directory is valid: %s.", err),
 		))
 		c.showDiagnostics(diags)
 		return 1
@@ -67,7 +67,7 @@ func (c *ProvidersCommand) Run(args []string) int {
 		diags = diags.Append(tfdiags.Sourceless(
 			tfdiags.Error,
 			"No configuration files",
-			fmt.Sprintf("The directory %s contains no OpenTF configuration files.", absPath),
+			fmt.Sprintf("The directory %s contains no OpenTofu configuration files.", absPath),
 		))
 		c.showDiagnostics(diags)
 		return 1
@@ -186,5 +186,5 @@ Usage: opentf [global options] providers [options] [DIR]
 
 Options:
 
-  -test-directory=path	Set the OpenTF test directory, defaults to "tests".
+  -test-directory=path	Set the OpenTofu test directory, defaults to "tests".
 `

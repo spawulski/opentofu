@@ -1,6 +1,6 @@
 ---
 sidebar_label: azurerm
-description: OpenTF can store state remotely in Azure Blob Storage.
+description: OpenTofu can store state remotely in Azure Blob Storage.
 ---
 
 # Backend Type: azurerm
@@ -237,7 +237,7 @@ data "terraform_remote_state" "foo" {
 ## Configuration Variables
 
 :::danger Warning
-We recommend using environment variables to supply credentials and other sensitive data. If you use `-backend-config` or hardcode these values directly in your configuration, OpenTF will include these values in both the `.terraform` subdirectory and in plan files. Refer to [Credentials and Sensitive Data](/docs/language/settings/backends/configuration#credentials-and-sensitive-data) for details.
+We recommend using environment variables to supply credentials and other sensitive data. If you use `-backend-config` or hardcode these values directly in your configuration, OpenTofu will include these values in both the `.terraform` subdirectory and in plan files. Refer to [Credentials and Sensitive Data](/docs/language/settings/backends/configuration#credentials-and-sensitive-data) for details.
 :::
 
 The following configuration options are supported:
@@ -246,7 +246,7 @@ The following configuration options are supported:
 
 * `container_name` - (Required) The Name of [the Storage Container](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container) within the Storage Account.
 
-* `key` - (Required) The name of the Blob used to retrieve/store OpenTF's State file inside the Storage Container.
+* `key` - (Required) The name of the Blob used to retrieve/store OpenTofu's State file inside the Storage Container.
 
 * `environment` - (Optional) The Azure Environment which should be used. This can also be sourced from the `ARM_ENVIRONMENT` environment variable. Possible values are `public`, `china`, `german`, `stack` and `usgovernment`. Defaults to `public`.
 
@@ -258,7 +258,7 @@ The following configuration options are supported:
 
 * `metadata_host` - (Optional) The Hostname of the Azure Metadata Service (for example `management.azure.com`), used to obtain the Cloud Environment when using a Custom Azure Environment. This can also be sourced from the `ARM_METADATA_HOSTNAME` Environment Variable.
 
-* `snapshot` - (Optional) Should the Blob used to store the OpenTF Statefile be snapshotted before use? Defaults to `false`. This value can also be sourced from the `ARM_SNAPSHOT` environment variable.
+* `snapshot` - (Optional) Should the Blob used to store the OpenTofu Statefile be snapshotted before use? Defaults to `false`. This value can also be sourced from the `ARM_SNAPSHOT` environment variable.
 
 ***
 

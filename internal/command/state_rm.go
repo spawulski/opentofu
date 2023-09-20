@@ -161,10 +161,10 @@ func (c *StateRmCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] state rm [options] ADDRESS...
 
-  Remove one or more items from the OpenTF state, causing OpenTF to
+  Remove one or more items from the OpenTofu state, causing OpenTofu to
   "forget" those items without first destroying them in the remote system.
 
-  This command removes one or more resource instances from the OpenTF state
+  This command removes one or more resource instances from the OpenTofu state
   based on the addresses given. You can view and list the available instances
   with "opentf state list".
 
@@ -179,7 +179,7 @@ Options:
   -dry-run                If set, prints out what would've been removed but
                           doesn't actually remove anything.
 
-  -backup=PATH            Path where OpenTF should write the backup
+  -backup=PATH            Path where OpenTofu should write the backup
                           state.
 
   -lock=false             Don't hold a state lock during the operation. This is
@@ -191,7 +191,7 @@ Options:
   -state=PATH             Path to the state file to update. Defaults to the
                           current workspace state.
 
-  -ignore-remote-version  Continue even if remote and local OpenTF versions
+  -ignore-remote-version  Continue even if remote and local OpenTofu versions
                           are incompatible. This may result in an unusable
                           workspace, and should be used with extreme caution.
 

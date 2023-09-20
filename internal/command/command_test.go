@@ -1120,7 +1120,7 @@ func checkGoldenReference(t *testing.T, output *terminal.TestOutput, fixturePath
 		Level   string `json:"@level"`
 		Message string `json:"@message"`
 		Type    string `json:"type"`
-		OpenTF  string `json:"opentf"`
+		OpenTofu  string `json:"opentf"`
 		UI      string `json:"ui"`
 	}
 	var gotVersion versionMessage
@@ -1129,7 +1129,7 @@ func checkGoldenReference(t *testing.T, output *terminal.TestOutput, fixturePath
 	}
 	wantVersion := versionMessage{
 		"info",
-		fmt.Sprintf("OpenTF %s", version.String()),
+		fmt.Sprintf("OpenTofu %s", version.String()),
 		"version",
 		version.String(),
 		views.JSON_UI_VERSION,

@@ -1,10 +1,10 @@
 # jsonformat
 
 This package contains functionality around formatting and displaying the JSON
-structured output produced by adding the `-json` flag to various OpenTF
+structured output produced by adding the `-json` flag to various OpenTofu
 commands.
 
-## OpenTF Structured Plan Renderer
+## OpenTofu Structured Plan Renderer
 
 As of January 2023, this package contains only a single structure: the 
 `Renderer`.
@@ -32,7 +32,7 @@ concerned with the complex diff calculations.
 The `differ` package operates on `Change` objects. These are produced from
 `jsonplan.Change` objects (which are produced by the `opentf show` command).
 Each `jsonplan.Change` object represents a single resource within the overall
-OpenTF configuration.
+OpenTofu configuration.
 
 The `differ` package will iterate through the `Change` objects and produce a 
 single `Diff` that represents a processed summary of the changes described by 

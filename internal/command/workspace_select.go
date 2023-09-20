@@ -152,11 +152,11 @@ func (c *WorkspaceSelectCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] workspace select NAME
 
-  Select a different OpenTF workspace.
+  Select a different OpenTofu workspace.
 
 Options:
 
-    -or-create=false    Create the OpenTF workspace if it doesn't exist.
+    -or-create=false    Create the OpenTofu workspace if it doesn't exist.
 
 `
 	return strings.TrimSpace(helpText)

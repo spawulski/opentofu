@@ -612,11 +612,11 @@ something bad happened during this test
 			},
 			StdOut: `  run "run_block"... pass
 
-OpenTF used the selected providers to generate the following execution plan.
+OpenTofu used the selected providers to generate the following execution plan.
 Resource actions are indicated with the following symbols:
   + create
 
-OpenTF will perform the following actions:
+OpenTofu will perform the following actions:
 
   # test_resource.creating will be created
   + resource "test_resource" "creating" {
@@ -762,7 +762,7 @@ Warning: second warning
 
 some thing not very bad happened again
 `,
-			stderr: `OpenTF encountered an error destroying resources created while executing
+			stderr: `OpenTofu encountered an error destroying resources created while executing
 main.tftest.hcl.
 
 Error: first error
@@ -777,7 +777,7 @@ this time it is very bad
 			run:   &moduletest.Run{Name: "run_block"},
 			file:  &moduletest.File{Name: "main.tftest.hcl"},
 			state: states.NewState(),
-			stderr: `OpenTF encountered an error destroying resources created while executing
+			stderr: `OpenTofu encountered an error destroying resources created while executing
 main.tftest.hcl/run_block.
 
 Error: first error
@@ -843,7 +843,7 @@ Warning: second warning
 some thing not very bad happened again
 `,
 			stderr: `
-OpenTF left the following resources in state after executing main.tftest.hcl,
+OpenTofu left the following resources in state after executing main.tftest.hcl,
 and they need to be cleaned up manually:
   - test.bar
   - test.bar (0fcb640a)
@@ -908,14 +908,14 @@ Warning: second warning
 
 some thing not very bad happened again
 `,
-			stderr: `OpenTF encountered an error destroying resources created while executing
+			stderr: `OpenTofu encountered an error destroying resources created while executing
 main.tftest.hcl.
 
 Error: first error
 
 this time it is very bad
 
-OpenTF left the following resources in state after executing main.tftest.hcl,
+OpenTofu left the following resources in state after executing main.tftest.hcl,
 and they need to be cleaned up manually:
   - test.bar
   - test.bar (0fcb640a)
@@ -990,10 +990,10 @@ func TestTestHuman_FatalInterruptSummary(t *testing.T) {
 				},
 			},
 			want: `
-OpenTF was interrupted while executing main.tftest.hcl, and may not have
+OpenTofu was interrupted while executing main.tftest.hcl, and may not have
 performed the expected cleanup operations.
 
-OpenTF was in the process of creating the following resources for "run_block"
+OpenTofu was in the process of creating the following resources for "run_block"
 from the module under test, and they may not have been destroyed:
   - test_instance.one
   - test_instance.two
@@ -1033,10 +1033,10 @@ from the module under test, and they may not have been destroyed:
 			},
 			created: nil,
 			want: `
-OpenTF was interrupted while executing main.tftest.hcl, and may not have
+OpenTofu was interrupted while executing main.tftest.hcl, and may not have
 performed the expected cleanup operations.
 
-OpenTF has already created the following resources from the module under
+OpenTofu has already created the following resources from the module under
 test:
   - test_instance.one
   - test_instance.two
@@ -1083,10 +1083,10 @@ test:
 			},
 			created: nil,
 			want: `
-OpenTF was interrupted while executing main.tftest.hcl, and may not have
+OpenTofu was interrupted while executing main.tftest.hcl, and may not have
 performed the expected cleanup operations.
 
-OpenTF has already created the following resources for "setup_block" from
+OpenTofu has already created the following resources for "setup_block" from
 "../setup":
   - test_instance.one
   - test_instance.two
@@ -1197,20 +1197,20 @@ OpenTF has already created the following resources for "setup_block" from
 				Name:   "run_block",
 			},
 			want: `
-OpenTF was interrupted while executing main.tftest.hcl, and may not have
+OpenTofu was interrupted while executing main.tftest.hcl, and may not have
 performed the expected cleanup operations.
 
-OpenTF has already created the following resources from the module under
+OpenTofu has already created the following resources from the module under
 test:
   - test_instance.one
   - test_instance.two
 
-OpenTF has already created the following resources for "setup_block" from
+OpenTofu has already created the following resources for "setup_block" from
 "../setup":
   - test_instance.setup_one
   - test_instance.setup_two
 
-OpenTF was in the process of creating the following resources for "run_block"
+OpenTofu was in the process of creating the following resources for "run_block"
 from the module under test, and they may not have been destroyed:
   - test_instance.new_one
   - test_instance.new_two
@@ -1944,7 +1944,7 @@ func TestTestJSON_DestroySummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF left some resources in state after executing main.tftest.hcl/run_block, they need to be cleaned up manually.",
+					"@message":  "OpenTofu left some resources in state after executing main.tftest.hcl/run_block, they need to be cleaned up manually.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"@testrun":  "run_block",
@@ -2010,7 +2010,7 @@ func TestTestJSON_DestroySummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF left some resources in state after executing main.tftest.hcl, they need to be cleaned up manually.",
+					"@message":  "OpenTofu left some resources in state after executing main.tftest.hcl, they need to be cleaned up manually.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_cleanup": map[string]interface{}{
@@ -2107,7 +2107,7 @@ func TestTestJSON_DestroySummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF left some resources in state after executing main.tftest.hcl, they need to be cleaned up manually.",
+					"@message":  "OpenTofu left some resources in state after executing main.tftest.hcl, they need to be cleaned up manually.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_cleanup": map[string]interface{}{
@@ -2810,7 +2810,7 @@ func TestTestJSON_FatalInterruptSummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF was interrupted during test execution, and may not have performed the expected cleanup operations.",
+					"@message":  "OpenTofu was interrupted during test execution, and may not have performed the expected cleanup operations.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_interrupt": map[string]interface{}{
@@ -2859,7 +2859,7 @@ func TestTestJSON_FatalInterruptSummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF was interrupted during test execution, and may not have performed the expected cleanup operations.",
+					"@message":  "OpenTofu was interrupted during test execution, and may not have performed the expected cleanup operations.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_interrupt": map[string]interface{}{
@@ -2912,7 +2912,7 @@ func TestTestJSON_FatalInterruptSummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF was interrupted during test execution, and may not have performed the expected cleanup operations.",
+					"@message":  "OpenTofu was interrupted during test execution, and may not have performed the expected cleanup operations.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_interrupt": map[string]interface{}{
@@ -3027,7 +3027,7 @@ func TestTestJSON_FatalInterruptSummary(t *testing.T) {
 			want: []map[string]interface{}{
 				{
 					"@level":    "error",
-					"@message":  "OpenTF was interrupted during test execution, and may not have performed the expected cleanup operations.",
+					"@message":  "OpenTofu was interrupted during test execution, and may not have performed the expected cleanup operations.",
 					"@module":   "opentf.ui",
 					"@testfile": "main.tftest.hcl",
 					"test_interrupt": map[string]interface{}{

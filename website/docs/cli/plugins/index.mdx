@@ -6,31 +6,31 @@ description: >-
 
 # Managing Plugins
 
-OpenTF relies on plugins called "providers" in order to manage various types
+OpenTofu relies on plugins called "providers" in order to manage various types
 of resources. (For more information about providers, see
-[Providers](/docs/language/providers) in the OpenTF
+[Providers](/docs/language/providers) in the OpenTofu
 language docs.)
 
 :::note
-Providers are the only plugin type most OpenTF users interact with. OpenTF also supports third-party provisioner plugins, but
+Providers are the only plugin type most OpenTofu users interact with. OpenTofu also supports third-party provisioner plugins, but
 we discourage their use.
 :::
 
-OpenTF downloads and/or installs any providers
+OpenTofu downloads and/or installs any providers
 [required](/docs/language/providers/requirements) by a configuration
 when [initializing](/docs/cli/init) a working directory. By default,
 this works without any additional interaction but requires network access to
 download providers from their source registry.
 
-You can configure OpenTF's provider installation behavior to limit or skip
+You can configure OpenTofu's provider installation behavior to limit or skip
 network access, and to enable use of providers that aren't available via a
-networked source. OpenTF also includes some commands to show information
+networked source. OpenTofu also includes some commands to show information
 about providers and to reduce the effort of installing providers in airgapped
 environments.
 
 ## Configuring Plugin Installation
 
-OpenTF's configuration file includes options for caching downloaded plugins,
+OpenTofu's configuration file includes options for caching downloaded plugins,
 or explicitly specifying a local or HTTPS mirror to install plugins from. For
 more information, see [CLI Config File](/docs/cli/config/config-file).
 
@@ -52,9 +52,9 @@ offered by each provider.
 Use the [`opentf providers mirror`](/docs/cli/commands/providers/mirror) command to
 download local copies of every provider required by the current working
 directory's configuration. This directory will use the nested directory layout
-that OpenTF expects when installing plugins from a local source, so you can
-transfer it directly to an airgapped system that runs OpenTF.
+that OpenTofu expects when installing plugins from a local source, so you can
+transfer it directly to an airgapped system that runs OpenTofu.
 
 Use the [`opentf providers lock`](/docs/cli/commands/providers/lock) command
-to update the lock file that OpenTF uses to ensure predictable runs when
+to update the lock file that OpenTofu uses to ensure predictable runs when
 using ambiguous provider version constraints.

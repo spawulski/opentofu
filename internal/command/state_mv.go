@@ -356,7 +356,7 @@ func (c *StateMvCommand) Run(args []string) int {
 			diags = diags.Append(tfdiags.Sourceless(
 				tfdiags.Error,
 				msgInvalidSource,
-				fmt.Sprintf("Cannot move %s: OpenTF doesn't know how to move this object.", rawAddrFrom),
+				fmt.Sprintf("Cannot move %s: OpenTofu doesn't know how to move this object.", rawAddrFrom),
 			))
 		}
 
@@ -528,7 +528,7 @@ Usage: opentf [global options] state mv [options] SOURCE DESTINATION
  This can be used for simple resource renaming, moving items to and from
  a module, moving entire modules, and more. And because this command can also
  move data to a completely new state, it can also be used for refactoring
- one configuration into multiple separately managed OpenTF configurations.
+ one configuration into multiple separately managed OpenTofu configurations.
 
  This command will output a backup copy of the state prior to saving any
  changes. The backup cannot be disabled. Due to the destructive nature

@@ -6,14 +6,14 @@ description: >-
 
 # Inspecting Infrastructure
 
-OpenTF configurations and state data include some highly structured
+OpenTofu configurations and state data include some highly structured
 information about the resources they manage; this includes dependency
 information, outputs (which are pieces of generated or discovered data that the
 configuration's author considers important enough to surface to users), and
 more.
 
-OpenTF CLI includes some commands for inspecting or transforming this data.
-You can use these to integrate other tools with OpenTF's infrastructure data,
+OpenTofu CLI includes some commands for inspecting or transforming this data.
+You can use these to integrate other tools with OpenTofu's infrastructure data,
 or just to gain a deeper or more holistic understanding of your infrastructure.
 
 - [The `opentf graph` command](/docs/cli/commands/graph) creates a visual
@@ -21,7 +21,7 @@ or just to gain a deeper or more holistic understanding of your infrastructure.
 - [The `opentf output` command](/docs/cli/commands/output) can get the
   values for the top-level [output values](/docs/language/values/outputs) of
   a configuration, which are often helpful when making use of the infrastructure
-  OpenTF has provisioned.
+  OpenTofu has provisioned.
 - [The `opentf show` command](/docs/cli/commands/show) can generate
   human-readable versions of a state file or plan file, or generate
   machine-readable versions that can be integrated with other tools.

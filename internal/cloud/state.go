@@ -338,7 +338,7 @@ func (s *State) Lock(info *statemgr.LockInfo) (string, error) {
 
 	// Lock the workspace.
 	_, err := s.tfeClient.Workspaces.Lock(ctx, s.workspace.ID, tfe.WorkspaceLockOptions{
-		Reason: tfe.String("Locked by OpenTF"),
+		Reason: tfe.String("Locked by OpenTofu"),
 	})
 	if err != nil {
 		if err == tfe.ErrWorkspaceLocked {

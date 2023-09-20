@@ -83,7 +83,7 @@ func ParseApply(args []string) (*Apply, tfdiags.Diagnostics) {
 		diags = diags.Append(tfdiags.Sourceless(
 			tfdiags.Error,
 			"Plan file or auto-approve required",
-			"OpenTF cannot ask for interactive approval when -json is set. You can either apply a saved plan file, or enable the -auto-approve option.",
+			"OpenTofu cannot ask for interactive approval when -json is set. You can either apply a saved plan file, or enable the -auto-approve option.",
 		))
 	}
 

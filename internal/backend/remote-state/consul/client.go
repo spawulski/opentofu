@@ -364,7 +364,7 @@ func (c *RemoteClient) Lock(info *statemgr.LockInfo) (string, error) {
 	c.info = info
 
 	// These checks only are to ensure we strictly follow the specification.
-	// OpenTF shouldn't ever re-lock, so provide errors for the 2 possible
+	// OpenTofu shouldn't ever re-lock, so provide errors for the 2 possible
 	// states if this is called.
 	select {
 	case <-c.lockCh:

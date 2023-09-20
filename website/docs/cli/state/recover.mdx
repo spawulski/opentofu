@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to restore state backups and override OpenTF state protections to fix state errors with the OpenTF CLI.
+  Learn how to restore state backups and override OpenTofu state protections to fix state errors with the OpenTofu CLI.
 
 ---
 
@@ -11,8 +11,8 @@ other state manipulation actions), you might need to take drastic actions with
 your state data.
 
 - [The `opentf force-unlock` command](/docs/cli/commands/force-unlock) can
-  override the protections OpenTF uses to prevent two processes from
-  modifying state at the same time. You might need this if a OpenTF process
+  override the protections OpenTofu uses to prevent two processes from
+  modifying state at the same time. You might need this if a OpenTofu process
   (like a normal apply) is unexpectedly terminated (like by the complete
   destruction of the VM it's running in) before it can release its lock on the
   state backend. Do not run this until you are completely certain what happened

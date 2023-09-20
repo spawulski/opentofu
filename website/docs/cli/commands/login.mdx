@@ -1,18 +1,18 @@
 ---
 description: >-
   The opentf login command can be used to automatically obtain and save an
-  API token for any host that offers OpenTF-compatible services.
+  API token for any host that offers OpenTofu-compatible services.
 ---
 
 # Command: login
 
 The `opentf login` command can be used to automatically obtain and save an
-API token for any host that offers OpenTF-compatible services.
+API token for any host that offers OpenTofu-compatible services.
 
 :::note
 This command is suitable only for use in interactive scenarios
-where it is possible to launch a web browser on the same host where OpenTF
-is running. If you are running OpenTF in an unattended automation scenario,
+where it is possible to launch a web browser on the same host where OpenTofu
+is running. If you are running OpenTofu in an unattended automation scenario,
 you can
 [configure credentials manually in the CLI configuration](/docs/cli/config/config-file#credentials).
 :::
@@ -23,7 +23,7 @@ Usage: `opentf login [hostname]`
 
 ## Credentials Storage
 
-By default, OpenTF will obtain an API token and save it in plain text in a
+By default, OpenTofu will obtain an API token and save it in plain text in a
 local CLI configuration file called `credentials.tfrc.json`. When you run
 `opentf login`, it will explain specifically where it intends to save
 the API token and give you a chance to cancel if the current configuration is

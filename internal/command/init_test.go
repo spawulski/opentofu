@@ -969,8 +969,8 @@ func TestInit_backendCloudInvalidOptions(t *testing.T) {
 
 		// We have -backend-config as a pragmatic way to dynamically set
 		// certain settings of backends that tend to vary depending on
-		// where OpenTF is running, such as AWS authentication profiles
-		// that are naturally local only to the machine where OpenTF is
+		// where OpenTofu is running, such as AWS authentication profiles
+		// that are naturally local only to the machine where OpenTofu is
 		// running. Those needs don't apply to Terraform Cloud, because
 		// the remote workspace encapsulates all of the details of how
 		// operations and state work in that case, and so the Cloud
@@ -1662,7 +1662,7 @@ func TestInit_providerSource(t *testing.T) {
 	if code := c.Run(args); code != 0 {
 		t.Fatalf("bad: \n%s", ui.ErrorWriter.String())
 	}
-	if strings.Contains(ui.OutputWriter.String(), "OpenTF has initialized, but configuration upgrades may be needed") {
+	if strings.Contains(ui.OutputWriter.String(), "OpenTofu has initialized, but configuration upgrades may be needed") {
 		t.Fatalf("unexpected \"configuration upgrade\" warning in output")
 	}
 
@@ -2575,7 +2575,7 @@ func TestInit_pluginDirWithBuiltIn(t *testing.T) {
 	}
 
 	outputStr := ui.OutputWriter.String()
-	if subStr := "terraform.io/builtin/terraform is built in to OpenTF"; !strings.Contains(outputStr, subStr) {
+	if subStr := "terraform.io/builtin/terraform is built in to OpenTofu"; !strings.Contains(outputStr, subStr) {
 		t.Errorf("output should mention the opentf provider\nwant substr: %s\ngot:\n%s", subStr, outputStr)
 	}
 }
@@ -2641,7 +2641,7 @@ func TestInit_invalidSyntaxNoBackend(t *testing.T) {
 	}
 
 	errStr := ui.ErrorWriter.String()
-	if subStr := "OpenTF encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
+	if subStr := "OpenTofu encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
 		t.Errorf("Error output should include preamble\nwant substr: %s\ngot:\n%s", subStr, errStr)
 	}
 	if subStr := "Error: Unsupported block type"; !strings.Contains(errStr, subStr) {
@@ -2670,7 +2670,7 @@ func TestInit_invalidSyntaxWithBackend(t *testing.T) {
 	}
 
 	errStr := ui.ErrorWriter.String()
-	if subStr := "OpenTF encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
+	if subStr := "OpenTofu encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
 		t.Errorf("Error output should include preamble\nwant substr: %s\ngot:\n%s", subStr, errStr)
 	}
 	if subStr := "Error: Unsupported block type"; !strings.Contains(errStr, subStr) {
@@ -2699,7 +2699,7 @@ func TestInit_invalidSyntaxInvalidBackend(t *testing.T) {
 	}
 
 	errStr := ui.ErrorWriter.String()
-	if subStr := "OpenTF encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
+	if subStr := "OpenTofu encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
 		t.Errorf("Error output should include preamble\nwant substr: %s\ngot:\n%s", subStr, errStr)
 	}
 	if subStr := "Error: Unsupported block type"; !strings.Contains(errStr, subStr) {
@@ -2731,7 +2731,7 @@ func TestInit_invalidSyntaxBackendAttribute(t *testing.T) {
 	}
 
 	errStr := ui.ErrorWriter.String()
-	if subStr := "OpenTF encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
+	if subStr := "OpenTofu encountered problems during initialisation, including problems\nwith the configuration, described below."; !strings.Contains(errStr, subStr) {
 		t.Errorf("Error output should include preamble\nwant substr: %s\ngot:\n%s", subStr, errStr)
 	}
 	if subStr := "Error: Invalid character"; !strings.Contains(errStr, subStr) {

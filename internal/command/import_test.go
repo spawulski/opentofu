@@ -674,7 +674,7 @@ func TestImport_emptyConfig(t *testing.T) {
 	}
 
 	msg := ui.ErrorWriter.String()
-	if want := `No OpenTF configuration files`; !strings.Contains(msg, want) {
+	if want := `No OpenTofu configuration files`; !strings.Contains(msg, want) {
 		t.Errorf("incorrect message\nwant substring: %s\ngot:\n%s", want, msg)
 	}
 }

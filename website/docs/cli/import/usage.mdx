@@ -4,22 +4,22 @@ description: The `opentf import` command is used to import existing infrastructu
 
 # Import Usage
 
-Use the `opentf import` command to import existing infrastructure to OpenTF state.
+Use the `opentf import` command to import existing infrastructure to OpenTofu state.
 
 The `opentf import` command can only import one resource at a time. It cannot simultaneously import an entire collection of resources, like an AWS VPC.
 
 :::warning
-OpenTF expects that each remote object it is managing will be
-bound to only one resource address, which is normally guaranteed by OpenTF
-itself having created all objects. If you import existing objects into OpenTF,
-be careful to import each remote object to only one OpenTF resource address.
-If you import the same object multiple times, OpenTF may exhibit unwanted
+OpenTofu expects that each remote object it is managing will be
+bound to only one resource address, which is normally guaranteed by OpenTofu
+itself having created all objects. If you import existing objects into OpenTofu,
+be careful to import each remote object to only one OpenTofu resource address.
+If you import the same object multiple times, OpenTofu may exhibit unwanted
 behavior. For more information on this assumption, see
 [the State section](/docs/language/state).
 :::
 
 To import a resource, first write a resource block for it in your
-configuration, establishing the name by which it will be known to OpenTF:
+configuration, establishing the name by which it will be known to OpenTofu:
 
 ```
 resource "aws_instance" "example" {
@@ -46,7 +46,7 @@ This command locates the AWS EC2 instance with ID `i-abcd1234`. Then it attaches
 the existing settings of the instance, as described by the EC2 API, to the
 name `aws_instance.example` of a module. In this example the module path
 implies that the root module is used. Finally, the mapping is saved in the
-OpenTF state.
+OpenTofu state.
 
 It is also possible to import to resources in child modules, using their paths,
 and to single instances of a resource with `count` or `for_each` set. See
@@ -73,7 +73,7 @@ an `aws_network_acl` but also one `aws_network_acl_rule` for each rule.
 In this scenario, the secondary resources will not already exist in
 configuration, so it is necessary to consult the import output and create
 a `resource` block in configuration for each secondary resource. If this is
-not done, OpenTF will plan to destroy the imported objects on the next run.
+not done, OpenTofu will plan to destroy the imported objects on the next run.
 
 If you want to rename or otherwise move the imported resources, the
 [state management commands](/docs/cli/commands/state) can be used.

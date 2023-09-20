@@ -1,6 +1,6 @@
 ---
 sidebar_label: oss
-description: OpenTF can store state remotely in OSS and lock that state with OSS.
+description: OpenTofu can store state remotely in OSS and lock that state with OSS.
 ---
 
 # Backend Type: oss
@@ -31,7 +31,7 @@ terraform {
 This assumes we have a [OSS Bucket](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/oss_bucket) created called `bucket-for-opentf-state`,
 a [OTS Instance](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/ots_instance) called `opentf-remote` and
 a [OTS TableStore](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/ots_table) called `statelock`. The
-OpenTF state will be written into the file `path/mystate/version-1.tfstate`. The `TableStore` must have a primary key named `LockID` of type `String`.
+OpenTofu state will be written into the file `path/mystate/version-1.tfstate`. The `TableStore` must have a primary key named `LockID` of type `String`.
 
 ## Data Source Configuration
 
@@ -70,7 +70,7 @@ data "terraform_remote_state" "network" {
 ## Configuration Variables
 
 :::danger Warning
-We recommend using environment variables to supply credentials and other sensitive data. If you use `-backend-config` or hardcode these values directly in your configuration, OpenTF will include these values in both the `.terraform` subdirectory and in plan files. Refer to [Credentials and Sensitive Data](/docs/language/settings/backends/configuration#credentials-and-sensitive-data) for details.
+We recommend using environment variables to supply credentials and other sensitive data. If you use `-backend-config` or hardcode these values directly in your configuration, OpenTofu will include these values in both the `.terraform` subdirectory and in plan files. Refer to [Credentials and Sensitive Data](/docs/language/settings/backends/configuration#credentials-and-sensitive-data) for details.
 :::
 
 The following configuration options or environment variables are supported:
@@ -111,7 +111,7 @@ The following configuration options or environment variables are supported:
 * `profile` - (Optional, Available in 0.12.8+)  This is the Alibaba Cloud profile name as set in the shared credentials file. It can also be sourced from the `ALICLOUD_PROFILE` environment variable.
 
 * `assume_role_role_arn` - (Optional, Available in 1.1.0+) The ARN of the role to assume. If ARN is set to an empty string, it does not perform role switching. It supports the environment variable `ALICLOUD_ASSUME_ROLE_ARN`.
-  OpenTF executes configuration on account with provided credentials.
+  OpenTofu executes configuration on account with provided credentials.
 
 * `assume_role_policy` - (Optional, Available in 1.1.0+) A more restrictive policy to apply to the temporary credentials. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use this policy to grant permissions that exceed those of the role that is being assumed.
 
@@ -124,7 +124,7 @@ The following configuration options or environment variables are supported:
   **Deprecated in favor of flattening assume_role_\* options**
 
   * `role_arn` - (Required) The ARN of the role to assume. If ARN is set to an empty string, it does not perform role switching. It supports the environment variable `ALICLOUD_ASSUME_ROLE_ARN`.
-    OpenTF executes configuration on account with provided credentials.
+    OpenTofu executes configuration on account with provided credentials.
 
   * `policy` - (Optional) A more restrictive policy to apply to the temporary credentials. This gives you a way to further restrict the permissions for the resulting temporary security credentials. You cannot use this policy to grant permissions that exceed those of the role that is being assumed.
 

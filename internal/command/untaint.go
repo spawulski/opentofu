@@ -197,17 +197,17 @@ func (c *UntaintCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] untaint [options] name
 
-  OpenTF uses the term "tainted" to describe a resource instance
+  OpenTofu uses the term "tainted" to describe a resource instance
   which may not be fully functional, either because its creation
   partially failed or because you've manually marked it as such using
   the "opentf taint" command.
 
   This command removes that state from a resource instance, causing
-  OpenTF to see it as fully-functional and not in need of
+  OpenTofu to see it as fully-functional and not in need of
   replacement.
 
   This will not modify your infrastructure directly. It only avoids
-  OpenTF planning to replace a tainted instance in a future operation.
+  OpenTofu planning to replace a tainted instance in a future operation.
 
 Options:
 

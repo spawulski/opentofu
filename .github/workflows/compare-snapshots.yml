@@ -30,7 +30,7 @@ jobs:
             linux \
             amd64
 
-      - name: Build the OpenTF binary
+      - name: Build the OpenTofu binary
         run: |
           go build -o ./bin/opentf
 

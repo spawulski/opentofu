@@ -48,13 +48,13 @@ tolist([
 ## Remote State
 
 If [remote state](/docs/language/state/remote) is used by the current backend,
-OpenTF will read the state for the current workspace from the backend
+OpenTofu will read the state for the current workspace from the backend
 before evaluating any expressions.
 
 ## Examples
 
-The `opentf console` command will read the OpenTF configuration in the
-current working directory and the OpenTF state file from the configured
+The `opentf console` command will read the OpenTofu configuration in the
+current working directory and the OpenTofu state file from the configured
 backend so that interpolations can be tested against both the values in the
 configuration and the state file.
 

@@ -13,11 +13,11 @@ filesystem.
 
 In normal use, `opentf init` will automatically download needed providers
 from provider registries as part of initializing the current working directory.
-Sometimes OpenTF is running in an environment where that isn't possible,
-such as on an isolated network without access to an OpenTF Registry. In
+Sometimes OpenTofu is running in an environment where that isn't possible,
+such as on an isolated network without access to an OpenTofu Registry. In
 that case,
 [explicit installation method configuration](/docs/cli/config/config-file#explicit-installation-method-configuration)
-allows you to configure OpenTF, when running on a particular system, to
+allows you to configure OpenTofu, when running on a particular system, to
 consult only a local filesystem directory where you've created a local mirror
 of the necessary plugins, and to skip accessing the upstream registry at all.
 
@@ -29,22 +29,22 @@ configuration.
 
 Usage: `opentf providers mirror [options] <target-dir>`
 
-A single target directory is required. OpenTF will create under that
+A single target directory is required. OpenTofu will create under that
 directory the path structure that is expected for filesystem-based provider
 plugin mirrors, populating it with `.zip` files containing the plugins
 themselves.
 
-OpenTF will also generate various `.json` index files which contain suitable
+OpenTofu will also generate various `.json` index files which contain suitable
 responses to implement
 [the network mirror protocol](/docs/internals/provider-network-mirror-protocol),
-if you upload the resulting directory to a static website host. OpenTF
+if you upload the resulting directory to a static website host. OpenTofu
 ignores those index files when using the directory as a filesystem mirror,
 because the directory entries themselves are authoritative in that case.
 
 This command supports the following additional option:
 
 * `-platform=OS_ARCH` - Choose which target platform to build a mirror for.
-  By default OpenTF will obtain plugin packages suitable for the platform
+  By default OpenTofu will obtain plugin packages suitable for the platform
   where you run this command. Use this flag multiple times to include packages
   for multiple target systems.
 

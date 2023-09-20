@@ -78,7 +78,7 @@ func (b *Local) localRun(op *backend.Operation) (*backend.LocalRun, *configload.
 	var ctxDiags tfdiags.Diagnostics
 	var configSnap *configload.Snapshot
 	if op.PlanFile.IsCloud() {
-		diags = diags.Append(fmt.Errorf("error: using a saved cloud plan when executing OpenTF locally is not supported"))
+		diags = diags.Append(fmt.Errorf("error: using a saved cloud plan when executing OpenTofu locally is not supported"))
 		return nil, nil, nil, diags
 	}
 
@@ -157,7 +157,7 @@ func (b *Local) localRunDirect(op *backend.Operation, run *backend.LocalRun, cor
 		case op.DependencyLocks == nil:
 			// If we get here then it suggests that there's a caller that we
 			// didn't yet update to populate DependencyLocks, which is a bug.
-			suggestion = "This run has no dependency lock information provided at all, which is a bug in OpenTF; please report it!"
+			suggestion = "This run has no dependency lock information provided at all, which is a bug in OpenTofu; please report it!"
 		case op.DependencyLocks.Empty():
 			suggestion = "To make the initial dependency selections that will initialize the dependency lock file, run:\n  opentf init"
 		default:
@@ -366,7 +366,7 @@ func (b *Local) localRunForPlanFile(op *backend.Operation, pf *planfile.Reader, 
 // additional elements as appropriate.
 //
 // Interactive prompting is a "best effort" thing for first-time user UX and
-// not something we expect folks to be relying on for routine use. OpenTF
+// not something we expect folks to be relying on for routine use. OpenTofu
 // is primarily a non-interactive tool, and so we prefer to report in error
 // messages that variables are not set rather than reporting that input failed:
 // the primary resolution to missing variables is to provide them by some other
@@ -435,7 +435,7 @@ func (b *Local) interactiveCollectVariables(ctx context.Context, existing map[st
 //
 // This function should be used only in situations where variables values
 // will not be directly used and the variables map is being constructed only
-// to produce a complete OpenTF context for some ancillary functionality
+// to produce a complete OpenTofu context for some ancillary functionality
 // like "opentf console", "opentf state ...", etc.
 //
 // This function is guaranteed not to modify the given map, but it may return

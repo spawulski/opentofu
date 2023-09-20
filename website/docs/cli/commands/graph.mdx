@@ -15,14 +15,14 @@ The output is in the DOT format, which can be used by
 
 Usage: `opentf graph [options]`
 
-Outputs the visual execution graph of OpenTF resources according to
+Outputs the visual execution graph of OpenTofu resources according to
 either the current configuration or an execution plan.
 
 The graph is outputted in DOT format. The typical program that can
 read this format is GraphViz, but many web services are also available
 to read this format.
 
-The `-type` flag can be used to control the type of graph shown. OpenTF
+The `-type` flag can be used to control the type of graph shown. OpenTofu
 creates different graphs for different operations. See the options below
 for the list of types supported. The default type is "plan" if a
 configuration is given, and "apply" if a plan file is passed as an
@@ -38,7 +38,7 @@ Options:
 
 * `-type=plan`      - Type of graph to output. Can be: `plan`, `plan-refresh-only`, `plan-destroy`, or `apply`.
 
-* `-module-depth=n` - (deprecated) In prior versions of OpenTF, specified the
+* `-module-depth=n` - (deprecated) In prior versions of OpenTofu, specified the
   depth of modules to show in the output.
 
 ## Generating Images

@@ -21,12 +21,12 @@ ARG BIN_NAME=opentf
 # into dist/linux/${TARGETARCH} for us to use.
 ARG TARGETARCH
 
-LABEL maintainer="OpenTF Team"
+LABEL maintainer="OpenTofu Team"
 
 # New standard version label.
 LABEL version=$PRODUCT_VERSION
 
-# Historical OpenTF-specific label preserved for backward compatibility.
+# Historical OpenTofu-specific label preserved for backward compatibility.
 LABEL "com.opentf.version"="${PRODUCT_VERSION}"
 
 RUN apk add --no-cache git openssh

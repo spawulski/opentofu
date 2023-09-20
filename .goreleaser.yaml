@@ -65,8 +65,8 @@ dockers:
       - "--pull"
       - "--platform=linux/amd64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.vendor=OpenTF"
-      - "--label=org.opencontainers.image.description=OpenTF {{ .Version }}"
+      - "--label=org.opencontainers.image.vendor=OpenTofu"
+      - "--label=org.opencontainers.image.description=OpenTofu {{ .Version }}"
       - "--label=org.opencontainers.image.url=https://github.com/opentffoundation/opentf"
       - "--label=org.opencontainers.image.documentation=https://github.com/opentffoundation/opentf/blob/main/README.md"
       - "--label=org.opencontainers.image.source=https://github.com/opentffoundation/opentf"
@@ -83,8 +83,8 @@ dockers:
       - "--pull"
       - "--platform=linux/arm64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.vendor=OpenTF"
-      - "--label=org.opencontainers.image.description=OpenTF {{ .Version }}"
+      - "--label=org.opencontainers.image.vendor=OpenTofu"
+      - "--label=org.opencontainers.image.description=OpenTofu {{ .Version }}"
       - "--label=org.opencontainers.image.url=https://github.com/opentffoundation/opentf"
       - "--label=org.opencontainers.image.documentation=https://github.com/opentffoundation/opentf/blob/main/README.md"
       - "--label=org.opencontainers.image.source=https://github.com/opentffoundation/opentf"
@@ -101,8 +101,8 @@ dockers:
       - "--pull"
       - "--platform=linux/arm"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.vendor=OpenTF"
-      - "--label=org.opencontainers.image.description=OpenTF {{ .Version }}"
+      - "--label=org.opencontainers.image.vendor=OpenTofu"
+      - "--label=org.opencontainers.image.description=OpenTofu {{ .Version }}"
       - "--label=org.opencontainers.image.url=https://github.com/opentffoundation/opentf"
       - "--label=org.opencontainers.image.documentation=https://github.com/opentffoundation/opentf/blob/main/README.md"
       - "--label=org.opencontainers.image.source=https://github.com/opentffoundation/opentf"
@@ -119,8 +119,8 @@ dockers:
       - "--pull"
       - "--platform=linux/386"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.vendor=OpenTF"
-      - "--label=org.opencontainers.image.description=OpenTF {{ .Version }}"
+      - "--label=org.opencontainers.image.vendor=OpenTofu"
+      - "--label=org.opencontainers.image.description=OpenTofu {{ .Version }}"
       - "--label=org.opencontainers.image.url=https://github.com/opentffoundation/opentf"
       - "--label=org.opencontainers.image.documentation=https://github.com/opentffoundation/opentf/blob/main/README.md"
       - "--label=org.opencontainers.image.source=https://github.com/opentffoundation/opentf"
@@ -165,7 +165,7 @@ nfpms:
     maintainer: 'https://github.com/orgs/opentffoundation/teams/opentf-core-team'
     homepage: https://opentf.org
     description: >-
-      OpenTF lets you declaratively manage your cloud infrastructure.
+      OpenTofu lets you declaratively manage your cloud infrastructure.
     license: "MPL-2.0"
     formats:
       - deb

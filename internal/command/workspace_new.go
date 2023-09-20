@@ -186,7 +186,7 @@ func (c *WorkspaceNewCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] workspace new [OPTIONS] NAME
 
-  Create a new OpenTF workspace.
+  Create a new OpenTofu workspace.
 
 Options:
 

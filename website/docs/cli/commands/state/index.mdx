@@ -5,8 +5,8 @@ description: The `opentf state` command is used for advanced state management.
 # Command: state
 
 The `opentf state` command is used for advanced state management.
-As your OpenTF usage becomes more advanced, there are some cases where
-you may need to modify the [OpenTF state](/docs/language/state).
+As your OpenTofu usage becomes more advanced, there are some cases where
+you may need to modify the [OpenTofu state](/docs/language/state).
 Rather than modify the state directly, the `opentf state` commands can
 be used in many cases instead.
 
@@ -21,7 +21,7 @@ Please click a subcommand to the left for more information.
 
 ## Remote State
 
-The OpenTF state subcommands all work with remote state just as if it
+The OpenTofu state subcommands all work with remote state just as if it
 was local state. Reads and writes may take longer than normal as each read
 and each write do a full network roundtrip. Otherwise, backups are still
 written to disk and the CLI usage is the same as if it were local state.
@@ -35,7 +35,7 @@ Subcommands that are read-only (such as [list](/docs/cli/commands/state/list))
 do not write any backup files since they aren't modifying the state.
 
 Note that backups for state modification _can not be disabled_. Due to
-the sensitivity of the state file, OpenTF forces every state modification
+the sensitivity of the state file, OpenTofu forces every state modification
 command to write a backup file. You'll have to remove these files manually
 if you don't want to keep them around.
 
@@ -45,5 +45,5 @@ The output and command-line structure of the state subcommands is
 designed to be usable with Unix command-line tools such as grep, awk,
 and similar PowerShell commands.
 
-For advanced filtering and modification, we recommend piping OpenTF
+For advanced filtering and modification, we recommend piping OpenTofu
 state subcommands together with other command line tools.

@@ -221,7 +221,7 @@ func (c *ApplyCommand) PrepareBackend(planFile *planfile.WrappedPlanFile, args *
 			diags = diags.Append(tfdiags.Sourceless(
 				tfdiags.Error,
 				"Failed to read plan from plan file",
-				"The given plan file does not have a valid backend configuration. This is a bug in the OpenTF command that generated this plan file.",
+				"The given plan file does not have a valid backend configuration. This is a bug in the OpenTofu command that generated this plan file.",
 			))
 			return nil, diags
 		}
@@ -327,13 +327,13 @@ func (c *ApplyCommand) helpApply() string {
 	helpText := `
 Usage: opentf [global options] apply [options] [PLAN]
 
-  Creates or updates infrastructure according to OpenTF configuration
+  Creates or updates infrastructure according to OpenTofu configuration
   files in the current directory.
 
-  By default, OpenTF will generate a new plan and present it for your
+  By default, OpenTofu will generate a new plan and present it for your
   approval before taking any action. You can optionally provide a plan
   file created by a previous call to "opentf plan", in which case
-  OpenTF will take the actions described in that plan without any
+  OpenTofu will take the actions described in that plan without any
   confirmation prompt.
 
 Options:
@@ -344,11 +344,11 @@ Options:
                          modifying. Defaults to the "-state-out" path with
                          ".backup" extension. Set to "-" to disable backup.
 
-  -compact-warnings      If OpenTF produces any warnings that are not
+  -compact-warnings      If OpenTofu produces any warnings that are not
                          accompanied by errors, show them in a more compact
                          form that includes only the summary messages.
 
-  -destroy               Destroy OpenTF-managed infrastructure.
+  -destroy               Destroy OpenTofu-managed infrastructure.
                          The command "opentf destroy" is a convenience alias
                          for this option.
 
@@ -384,7 +384,7 @@ func (c *ApplyCommand) helpDestroy() string {
 	helpText := `
 Usage: opentf [global options] destroy [options]
 
-  Destroy OpenTF-managed infrastructure.
+  Destroy OpenTofu-managed infrastructure.
 
   This command is a convenience alias for:
       opentf apply -destroy

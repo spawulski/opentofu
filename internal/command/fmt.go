@@ -548,7 +548,7 @@ func (c *FmtCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] fmt [options] [target...]
 
-  Rewrites all OpenTF configuration files to a canonical format. All
+  Rewrites all OpenTofu configuration files to a canonical format. All
   configuration files (.tf), variables files (.tfvars), and testing files 
   (.tftest.hcl) are updated. JSON files (.tf.json, .tfvars.json, or 
   .tftest.json) are not modified.
@@ -559,7 +559,7 @@ Usage: opentf [global options] fmt [options] [target...]
   file. If you provide a single dash ("-"), then fmt will read from standard
   input (STDIN).
 
-  The content must be in the OpenTF language native syntax; JSON is not
+  The content must be in the OpenTofu language native syntax; JSON is not
   supported.
 
 Options:

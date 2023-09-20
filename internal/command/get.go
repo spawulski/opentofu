@@ -75,14 +75,14 @@ Options:
 
   -no-color             Disable text coloring in the output.
 
-  -test-directory=path	Set the OpenTF test directory, defaults to "tests".
+  -test-directory=path	Set the OpenTofu test directory, defaults to "tests".
 
 `
 	return strings.TrimSpace(helpText)
 }
 
 func (c *GetCommand) Synopsis() string {
-	return "Install or upgrade remote OpenTF modules"
+	return "Install or upgrade remote OpenTofu modules"
 }
 
 func getModules(ctx context.Context, m *Meta, path string, testsDir string, upgrade bool) (abort bool, diags tfdiags.Diagnostics) {

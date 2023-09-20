@@ -106,7 +106,7 @@ func (c *LogoutCommand) Run(args []string) int {
 	c.Ui.Output(
 		fmt.Sprintf(
 			c.Colorize().Color(strings.TrimSpace(`
-[green][bold]Success![reset] [bold]OpenTF has removed the stored API token for %s.[reset]
+[green][bold]Success![reset] [bold]OpenTofu has removed the stored API token for %s.[reset]
 `)),
 			dispHostname,
 		) + "\n",

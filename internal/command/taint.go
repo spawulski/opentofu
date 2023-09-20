@@ -197,13 +197,13 @@ func (c *TaintCommand) Help() string {
 	helpText := `
 Usage: opentf [global options] taint [options] <address>
 
-  OpenTF uses the term "tainted" to describe a resource instance
+  OpenTofu uses the term "tainted" to describe a resource instance
   which may not be fully functional, either because its creation
   partially failed or because you've manually marked it as such using
   this command.
 
   This will not modify your infrastructure directly, but subsequent
-  OpenTF plans will include actions to destroy the remote object
+  OpenTofu plans will include actions to destroy the remote object
   and create a new object to replace it.
 
   You can remove the "taint" state from a resource instance using
@@ -215,7 +215,7 @@ Usage: opentf [global options] taint [options] <address>
     module.foo.module.bar.aws_instance.baz
 
   Use your shell's quoting or escaping syntax to ensure that the
-  address will reach OpenTF correctly, without any special
+  address will reach OpenTofu correctly, without any special
   interpretation.
 
 Options:

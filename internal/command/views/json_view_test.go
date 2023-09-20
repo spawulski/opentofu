@@ -30,7 +30,7 @@ func TestNewJSONView(t *testing.T) {
 	want := []map[string]interface{}{
 		{
 			"@level":   "info",
-			"@message": fmt.Sprintf("OpenTF %s", version),
+			"@message": fmt.Sprintf("OpenTofu %s", version),
 			"@module":  "opentf.ui",
 			"type":     "version",
 			"opentf":   version,

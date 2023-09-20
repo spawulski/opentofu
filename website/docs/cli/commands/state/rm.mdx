@@ -1,29 +1,29 @@
 ---
 description: >-
-  The `opentf state rm` command removes bindings from the OpenTF state,
-  causing OpenTF to "forget about" existing objects.
+  The `opentf state rm` command removes bindings from the OpenTofu state,
+  causing OpenTofu to "forget about" existing objects.
 ---
 
 # Command: state rm
 
-The main function of [OpenTF state](/docs/language/state) is
+The main function of [OpenTofu state](/docs/language/state) is
 to track the bindings between resource instance addresses in your configuration
-and the remote objects they represent. Normally OpenTF automatically
+and the remote objects they represent. Normally OpenTofu automatically
 updates the state in response to actions taken when applying a plan, such as
 removing a binding for a remote object that has now been deleted.
 
 You can use `opentf state rm` in the less common situation where you wish
 to remove a binding to an existing remote object without first destroying it,
-which will effectively make OpenTF "forget" the object while it continues
+which will effectively make OpenTofu "forget" the object while it continues
 to exist in the remote system.
 
 ## Usage
 
 Usage: `opentf state rm [options] ADDRESS...`
 
-OpenTF will search the state for any instances matching the given
+OpenTofu will search the state for any instances matching the given
 [resource address](/docs/cli/state/resource-addressing), and remove
-the record of each one so that OpenTF will no longer be tracking the
+the record of each one so that OpenTofu will no longer be tracking the
 corresponding remote objects.
 
 This means that although the objects will still continue to exist in the
@@ -44,7 +44,7 @@ This command also accepts the following options:
   workspace.
 
 - `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
-  instructs OpenTF to retry acquiring a lock for a period of time before
+  instructs OpenTofu to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.
 
@@ -60,7 +60,7 @@ For configurations using
 
 ## Example: Remove all Instances of a Resource
 
-The following example will cause OpenTF to "forget" all of the instances
+The following example will cause OpenTofu to "forget" all of the instances
 of the `packet_device` resource named "worker".
 
 ```shell
@@ -81,7 +81,7 @@ $ opentf state rm 'module.foo.packet_device.worker'
 
 ## Example: Remove all Instances of all Resources in a Module
 
-The following example will cause OpenTF to "forget" all of the instances
+The following example will cause OpenTofu to "forget" all of the instances
 associated with all resources defined in all instances of the module named
 `foo`:
 
@@ -101,7 +101,7 @@ $ opentf state rm 'packet_device.worker[0]'
 ```
 
 Brackets (`[`, `]`) have a special meaning in some shells, so you may need to
-quote or escape the address in order to pass it literally to OpenTF.
+quote or escape the address in order to pass it literally to OpenTofu.
 The above shows the typical quoting syntax for Unix-style shells.
 
 ## Example: Remove a Particular Instance of a Resource using `for_each`

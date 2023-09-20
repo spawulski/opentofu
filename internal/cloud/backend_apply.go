@@ -158,11 +158,11 @@ func (b *Cloud) opApply(stopCtx, cancelCtx context.Context, op *backend.Operatio
 
 			if op.PlanMode == plans.DestroyMode {
 				opts.Query = "\nDo you really want to destroy all resources in workspace \"" + op.Workspace + "\"?"
-				opts.Description = "OpenTF will destroy all your managed infrastructure, as shown above.\n" +
+				opts.Description = "OpenTofu will destroy all your managed infrastructure, as shown above.\n" +
 					"There is no undo. Only 'yes' will be accepted to confirm."
 			} else {
 				opts.Query = "\nDo you want to perform these actions in workspace \"" + op.Workspace + "\"?"
-				opts.Description = "OpenTF will perform the actions described above.\n" +
+				opts.Description = "OpenTofu will perform the actions described above.\n" +
 					"Only 'yes' will be accepted to approve."
 			}
 

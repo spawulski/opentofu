@@ -51,7 +51,7 @@ type JSONView struct {
 func (v *JSONView) Version() {
 	version := tfversion.String()
 	v.log.Info(
-		fmt.Sprintf("OpenTF %s", version),
+		fmt.Sprintf("OpenTofu %s", version),
 		"type", json.MessageVersion,
 		"opentf", version,
 		"ui", JSON_UI_VERSION,

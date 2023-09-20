@@ -1,27 +1,27 @@
 ---
 description: >-
-  The `opentf state mv` command changes bindings in OpenTF state,
+  The `opentf state mv` command changes bindings in OpenTofu state,
   associating existing remote objects with new resource instances.
 ---
 
 # Command: state mv
 
-The main function of [OpenTF state](/docs/language/state) is
+The main function of [OpenTofu state](/docs/language/state) is
 to track the bindings between resource instance addresses in your configuration
-and the remote objects they represent. Normally OpenTF automatically
+and the remote objects they represent. Normally OpenTofu automatically
 updates the state in response to actions taken when applying a plan, such as
 removing a binding for an remote object that has now been deleted.
 
 You can use `opentf state mv` in the less common situation where you wish
 to retain an existing remote object but track it as a different resource
-instance address in OpenTF, such as if you have renamed a resource block
+instance address in OpenTofu, such as if you have renamed a resource block
 or you have moved it into a different module in your configuration.
 
 ## Usage
 
 Usage: `opentf state mv [options] SOURCE DESTINATION`
 
-OpenTF will look in the current state for a resource instance, resource,
+OpenTofu will look in the current state for a resource instance, resource,
 or module that matches the given address, and if successful it will move the
 remote objects currently associated with the source to be tracked instead
 by the destination.
@@ -37,14 +37,14 @@ same resource type.
 The most common uses for `opentf state mv` are when you have renamed a
 resource block in your configuration or you've moved a resource block into
 a child module, in both cases with the intention of retaining the existing
-object but tracking it under a new name. By default OpenTF will understand
+object but tracking it under a new name. By default OpenTofu will understand
 moving or renaming a resource configuration as a request to delete the old
 object and create a new object at the new address, and so `opentf state mv`
 allows you to override that interpretation by pre-emptively attaching the
-existing object to the new address in OpenTF.
+existing object to the new address in OpenTofu.
 
 :::warning
-If you are using OpenTF in a collaborative environment, you
+If you are using OpenTofu in a collaborative environment, you
 must ensure that when you are using `opentf state mv` for a code refactoring
 purpose you communicate carefully with your coworkers to ensure that nobody
 makes any other changes between your configuration change and your
@@ -63,7 +63,7 @@ This command also accepts the following options:
   workspace.
 
 - `-lock-timeout=DURATION` - Unless locking is disabled with `-lock=false`,
-  instructs OpenTF to retry acquiring a lock for a period of time before
+  instructs OpenTofu to retry acquiring a lock for a period of time before
   returning an error. The duration syntax is a number followed by a time
   unit letter, such as "3s" for three seconds.
 
@@ -95,7 +95,7 @@ Renaming a resource means making a configuration change like the following:
  }
 ```
 
-To tell OpenTF that it should treat the new "helper" resource as a rename
+To tell OpenTofu that it should treat the new "helper" resource as a rename
 of the old "worker" resource, you can pair the above configuration change
 with the following command:
 
@@ -108,7 +108,7 @@ opentf state mv packet_device.worker packet_device.helper
 If you originally wrote a resource in your root module but now wish to refactor
 it into a child module, you can move the `resource` block into the child
 module configuration, removing the original in the root module, and then
-run the following command to tell OpenTF to treat it as a move:
+run the following command to tell OpenTofu to treat it as a move:
 
 ```shell
 opentf state mv packet_device.worker module.worker.packet_device.worker
@@ -154,7 +154,7 @@ $ opentf state mv 'packet_device.main' 'packet_device.all[0]'
 ```
 
 Brackets (`[`, `]`) have a special meaning in some shells, so you may need to
-quote or escape the address in order to pass it literally to OpenTF.
+quote or escape the address in order to pass it literally to OpenTofu.
 The above examples show the typical quoting syntax for Unix-style shells.
 
 ## Example: Move a Resource configured with for_each

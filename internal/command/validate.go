@@ -177,9 +177,9 @@ Options:
 
   -no-color             If specified, output won't contain any color.
 
-  -no-tests             If specified, OpenTF will not validate test files.
+  -no-tests             If specified, OpenTofu will not validate test files.
 
-  -test-directory=path	Set the OpenTF test directory, defaults to "tests".
+  -test-directory=path	Set the OpenTofu test directory, defaults to "tests".
 `
 	return strings.TrimSpace(helpText)
 }
